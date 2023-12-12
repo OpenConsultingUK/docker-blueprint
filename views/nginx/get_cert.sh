@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cp /etc/letsencrypt/live/poc.openconsultinguk.com/fullchain.pem certs/
-cp /etc/letsencrypt/live/poc.openconsultinguk.com/privkey.pem certs/
+cp /etc/letsencrypt/live/sample.domain.com/fullchain.pem certs/ # Change sample.domain.com
+cp /etc/letsencrypt/live/sample.domain.com/privkey.pem certs/ # Change sample.domain.com
 
 echo "Files copied to successfully."
