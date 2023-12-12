@@ -141,7 +141,6 @@ To automatically format code, run:
 ```
 
 ## Type Checking
-
 [Type annotations](https://docs.python.org/3/library/typing.html) allows developers to include
 optional static typing information to Python source code. This allows static analyzers such
 as [mypy](http://mypy-lang.org/), [PyCharm](https://www.jetbrains.com/pycharm/),
