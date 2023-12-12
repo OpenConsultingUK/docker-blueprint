@@ -1,38 +1,30 @@
+# Define metadata for the project
 [tool.poetry]
 name = "fact"
 version = "1.0.0"
-description = "Example Python project using best practices"
-authors = ["John Hagen <johnthagen@gmail.com>"]
-license = "MIT"
+description = "Example docker project using best practices"
+authors = ["Harsh Gokhru <hgokhru4@gmail.com>"]
+license = ""
 readme = "README.md"
-repository = "https://github.com/johnthagen/python-blueprint"
-documentation = "https://johnthagen.github.io/python-blueprint/"
-classifiers = [
-    "Development Status :: 5 - Production/Stable",
-    "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
-    "Programming Language :: Python",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Typing :: Typed",
-    # Include this classifier to prevent accidently publishing private code to PyPI.
-    #   https://pypi.org/classifiers/
-    "Private :: Do Not Upload",
-]
+repository = "https://github.com/openConsultingUK/AI"
 
 [tool.poetry.dependencies]
 # Some packages, such as scipy, constrain their upper bound of Python versions they support.
 # Without also constraining the upper bound here, Poetry will not select those versions and will
 # result in an old version being resolved/locked.
-python = "^3.8, <3.13"
-rich = "*"
-typer = { version = "*", extras = ["all"] }
+python = "^3.10"
+
+# Define dependencies for the FastAPI group
+[tool.poetry.group.fast_api.dependencies]
+python-dotenv = "^1.0.0"
+fastapi = "^0.104.1"
+uvicorn = "^0.24.0.post1"
+
+# Define dependencies for the Flask group
+[tool.poetry.group.flask.dependencies]
+python-dotenv = "^1.0.0"
+Flask = "^3.0.0"
+requests = "^2.31.0"
 
 [tool.poetry.group.nox.dependencies]
 nox-poetry = "*"
@@ -52,6 +44,9 @@ mypy = "*"
 
 [tool.poetry.group.lint.dependencies]
 ruff = "*"
+
+[tool.poetry.group.fmt.dependencies]
+black = "*"
 
 [tool.poetry.group.docs.dependencies]
 mkdocs-material = "*"
@@ -90,9 +85,6 @@ extend-select = [
 ]
 extend-ignore = ["RUF005"]
 src = ["src"]
-# Ruff will automatically exclude all files listed in .gitignore as well as common temporary Python
-# tool directories.
-# To exclude additional folders, use extend-exclude.
 
 [tool.ruff.isort]
 force-sort-within-sections = true
@@ -105,6 +97,13 @@ ban-relative-imports = "all"
 
 [tool.ruff.flake8-bugbear]
 extend-immutable-calls = ["typer.Argument"]
+
+[tool.black]
+line-length = 99
+target-version = ["py38", "py39", "py310", "py311"]
+# black will automatically exclude all files listed in .gitignore
+# If you need to exclude additional folders, consider using extend-exclude to avoid disabling the
+# default .gitignore behaviour.
 
 [tool.pytest.ini_options]
 addopts = [
