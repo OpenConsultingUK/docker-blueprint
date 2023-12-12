@@ -164,46 +164,6 @@ mypy is configured in [`pyproject.toml`](./pyproject.toml). To type check code, 
 
 See also [awesome-python-typing](https://github.com/typeddjango/awesome-python-typing).
 
-# Project Structure
-
-Traditionally, Python projects place the source for their packages in the root of the project
-structure, like:
-
-``` {.sourceCode .}
-factorial
-├── src
-│     └── fact
-|           ├── __init__.py
-│           └── lib.py
-├── tests
-│     └── init.py
-├── views
-│     └── fast_api
-│           ├── fastapi_app.py
-│           └── api.dockerfile
-|     ├── flask
-│           └── static
-|                  └── style.css
-│           └── templates
-│                  └── index.html
-│           └── app.py
-│           └── web.dockerfile
-|     ├── nginx
-│          ├── certs # Add SSL Certificate and Key
-|          ├── default.conf
-│          ├── get_cert.sh
-│          └── nginx.dockerfile
-├── docker-compose.yml
-├── noxfile.py
-├── poetry.lock
-├── pyproject.toml
-├── README.md
-├── .dockerignore
-└── .gitignore
-
-# Add SSL Certificate and Key for domain(s)
-Refer: [Link to Another README](views/nginx/certs/README.md)
-
 # Container
 
 [Docker](https://www.docker.com/) is a tool that allows for software to be packaged into isolated
@@ -254,3 +214,42 @@ docker rm -vf $(docker ps -aq)
 ```bash
 docker rmi -f $(docker images -aq)
 ```
+# Project Structure
+
+Traditionally, Python projects place the source for their packages in the root of the project
+structure, like:
+
+``` {.sourceCode .}
+factorial
+├── src
+│     └── fact
+|           ├── __init__.py
+│           └── lib.py
+├── tests
+│     └── init.py
+├── views
+│     └── fast_api
+│           ├── fastapi_app.py
+│           └── api.dockerfile
+|     ├── flask
+│           └── static
+|                  └── style.css
+│           └── templates
+│                  └── index.html
+│           └── app.py
+│           └── web.dockerfile
+|     ├── nginx
+│          ├── certs # Add SSL Certificate and Key
+|          ├── default.conf
+│          ├── get_cert.sh
+│          └── nginx.dockerfile
+├── docker-compose.yml
+├── noxfile.py
+├── poetry.lock
+├── pyproject.toml
+├── README.md
+├── .dockerignore
+└── .gitignore
+```
+# Add SSL Certificate and Key for domain(s)
+Refer: [Link to Another README](views/nginx/certs/README.md)
